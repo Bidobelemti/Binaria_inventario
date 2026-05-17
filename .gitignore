@@ -1,6 +1,0 @@
-/data
-/notebooks
-/src/__pycache__
-/src/etl/__pycache__
-/pipelines/__pycache__
-.gitignore
