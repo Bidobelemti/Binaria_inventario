@@ -15,8 +15,8 @@ def extract_data(file_path: str) -> pd.DataFrame:
     """
     try:
         df = pd.read_csv(file_path, sep=";", encoding="utf-8")
-        logger.info(f"Data extracted successfully from {file_path}")
+        logger.info(f"Data cargada correctamente desde {file_path}")
         return df
     except Exception as e:
-        logger.error(f"Error extracting data from {file_path}: {e}")
+        logger.error(f"Error cargando datos desde {file_path}: {e}")
         raise
