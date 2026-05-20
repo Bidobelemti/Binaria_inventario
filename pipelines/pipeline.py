@@ -4,6 +4,7 @@ import sys
 from pathlib import Path
 from src.etl.extract import extract_data
 from src.etl.transform import parsear_bios_lenovo, clean_text
+from src.etl.load import generate_dim_contrato, generate_dim_estado, generate_dim_estado_ejecucion, generate_dim_modelo, generate_dim_tipo_pc
 import pandas as pd
 
 
@@ -13,13 +14,12 @@ logging.basicConfig(
     datefmt="%Y-%m-%d %H:%M:%S")
 logger = logging.getLogger(__name__)
 
-
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(
         description="Pipeline ETL - inventariado"
     )
-    parser.add_argument("--data",   default="../data/02-silver",    help="Path de archivos")
-    parser.add_argument("--output", default="../data/03-gold",       help="Carpeta de salida")
+    parser.add_argument("--data",   default="data/02-silver",    help="Path de archivos")
+    parser.add_argument("--output", default="data/03-gold",       help="Carpeta de salida")
 
     args = parser.parse_args()
 
@@ -34,7 +34,8 @@ if __name__ == "__main__":
         except Exception as e:
             logger.error('Error al parseas BIOS')
             raise
-        df_pro = clean_text(df_raw)
-    except (FileExistsError, ValueError) as e:
+        df_procesado = clean_text(df_raw)
+
+    except (FileExistsError, ValueError, Exception) as e:
         logger.error(str(e))
         sys.exit(1)
