@@ -45,7 +45,7 @@ def clean_text(df: pd.DataFrame) -> pd.DataFrame:
             'DynamicField_VERSIONBIOS' : 'Version BIOS',
             'DynamicField_FECHAPUBLICACIONBIOS' : 'Fecha Publicacion BIOS',
             'DynamicField_FECHAFINGARANTIA' : 'Fecha Fin Garantia',
-            'DynamicField_FECHAULTIMAACTUALIZACION' : 'Fecha Ultima Actualizacion',
+            'DynamicField_FECHAULTIMAACTUALIZACION' : 'Fecha',
             'DynamicField_OBSERVACIONES' : 'Observaciones'
         }
     )
